@@ -12,4 +12,19 @@ public class CarBuilder {
 
         return car;
     }
+
+    public void changeCarEngine(Car car, int enginePower, String engineType) {
+        Engine engine = new Engine(enginePower, engineType);
+        car.setEngine(engine);
+    }
+
+    public void changeCarWheel(Car car, int wheelDiameter, String wheelType) {
+        Wheel wheel = new Wheel(wheelDiameter, wheelType);
+        car.setWheel(wheel);
+    }
+
+    public void rebuildCar(Car car, int enginePower, String engineType, int wheelDiameter, String wheelType) {
+        changeCarEngine(car, enginePower, engineType);
+        changeCarWheel(car, wheelDiameter, wheelType);
+    }
 }

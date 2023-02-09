@@ -1,9 +1,9 @@
 package task_3_1;
 
 public class Engine {
-    private int power;
-    private String type;
-    private int buildTime;
+    private final int power;
+    private final String type;
+    private final int buildTime;
 
     Engine(int power, String type) {
         this.power = power;
@@ -15,11 +15,15 @@ public class Engine {
         return power;
     }
 
-    public String getType() {
-        return type;
-    }
-
     public int getBuildTime() {
         return buildTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "power=" + power +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

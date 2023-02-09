@@ -13,12 +13,24 @@ public class Car {
         return engine;
     }
 
-    public Wheel getWheel() {
-        return wheel;
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setWheel(Wheel wheel) {
+        this.wheel = wheel;
     }
 
     public void CarComponentsBuildTime() {
         System.out.println("Engine build time: " + engine.getBuildTime());
         System.out.println("Wheel build time: " + wheel.getBuildTime());
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engine=" + engine +
+                ", wheel=" + wheel +
+                '}';
     }
 }

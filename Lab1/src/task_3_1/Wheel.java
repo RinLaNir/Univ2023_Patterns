@@ -1,9 +1,9 @@
 package task_3_1;
 
 public class Wheel {
-    private int diameter;
-    private String type;
-    private int buildTime;
+    private final int diameter;
+    private final String type;
+    private final int buildTime;
 
     Wheel(int diameter, String type) {
         this.diameter = diameter;
@@ -15,15 +15,15 @@ public class Wheel {
         return (int) (Math.random() * 15 + 1);
     }
 
-    public int getDiameter() {
-        return diameter;
-    }
-
-    public String getType() {
-        return type;
-    }
-
     public int getBuildTime() {
         return buildTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Wheel{" +
+                "diameter=" + diameter +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
