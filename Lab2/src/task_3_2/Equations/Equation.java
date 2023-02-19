@@ -13,10 +13,10 @@ public class Equation implements IEquation {
     @Override
     public double[] solve() {
         if (b == 0 && c!= 0) {
-            throw new ArithmeticException("equation has no solution");
+            throw new ArithmeticException("Equation has no solution");
         }
         if (b == 0 && c == 0) {
-            throw new ArithmeticException("equation has infinite number of solutions");
+            throw new ArithmeticException("Equation has infinite number of solutions");
         }
         return new double[] { -c / b };
     }

@@ -16,7 +16,7 @@ public class QuadraticEquation extends Equation {
         }
         double d = b * b - 4 * a * c;
         if (d < 0) {
-            throw new ArithmeticException("equation has no solution");
+            throw new ArithmeticException("Equation has no solution");
         }
         if (d == 0) {
             return new double[] { -b / (2 * a) };

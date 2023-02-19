@@ -45,12 +45,14 @@ public class EquationSolver {
     }
 
     public static void main(String[] args) {
-        boolean detailedOutput = false;
+
+        boolean detailedOutput = true;
+
         LinearEqFactory linearEqFactory = new LinearEqFactory(detailedOutput);
         QuadraticEqFactory quadraticEqFactory = new QuadraticEqFactory(detailedOutput);
         BiQuadraticEqFactory biQuadraticEqFactory = new BiQuadraticEqFactory(detailedOutput);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             double greatestRoot = Double.MIN_VALUE;
             double smallestRoot = Double.MAX_VALUE;
             IEquation equationWithGreatestRoot = null;
@@ -81,16 +83,20 @@ public class EquationSolver {
                         assert equation != null;
 
                         double[] roots = equation.solve();
-                        double greatestRootInEquation = getGreatestRoot(roots);
-                        double smallestRootInEquation = getSmallestRoot(roots);
-                        if (greatestRootInEquation > greatestRoot) {
-                            greatestRoot = greatestRootInEquation;
-                            equationWithGreatestRoot = equation;
+
+                        if (roots.length == 1){
+                            double greatestRootInEquation = getGreatestRoot(roots);
+                            double smallestRootInEquation = getSmallestRoot(roots);
+                            if (greatestRootInEquation > greatestRoot) {
+                                greatestRoot = greatestRootInEquation;
+                                equationWithGreatestRoot = equation;
+                            }
+                            if (smallestRootInEquation < smallestRoot) {
+                                smallestRoot = smallestRootInEquation;
+                                equationWithSmallestRoot = equation;
+                            }
                         }
-                        if (smallestRootInEquation < smallestRoot) {
-                            smallestRoot = smallestRootInEquation;
-                            equationWithSmallestRoot = equation;
-                        }
+
                         if (detailedOutput)
                             getNumberOfSolutions(roots);
                     } catch (ArithmeticException e) {
