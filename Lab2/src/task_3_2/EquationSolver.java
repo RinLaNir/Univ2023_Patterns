@@ -46,7 +46,7 @@ public class EquationSolver {
 
     public static void main(String[] args) {
 
-        boolean detailedOutput = true;
+        boolean detailedOutput = false;
 
         LinearEqFactory linearEqFactory = new LinearEqFactory(detailedOutput);
         QuadraticEqFactory quadraticEqFactory = new QuadraticEqFactory(detailedOutput);
