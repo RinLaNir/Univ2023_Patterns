@@ -1,12 +1,12 @@
-package task_3_2.equations;
+package task_3_2.Equations;
 
 // class describe quadratic equation ax^2 + bx + c = 0
 public class QuadraticEquation extends Equation {
     protected double a;
 
-    public QuadraticEquation(double a, double b, double c) {
+    public QuadraticEquation(String a, String b, String c) {
         super(b, c);
-        this.a = a;
+        this.a = Double.parseDouble(a);
     }
 
     @Override
@@ -14,13 +14,6 @@ public class QuadraticEquation extends Equation {
         if (a == 0) {
             return super.solve();
         }
-        if (a == 0 && b == 0 && c != 0) {
-            throw new ArithmeticException("equation has no solution");
-        }
-        if (a == 0 && b == 0 && c == 0) {
-            throw new ArithmeticException("equation has infinite number of solutions");
-        }
-
         double d = b * b - 4 * a * c;
         if (d < 0) {
             throw new ArithmeticException("equation has no solution");
@@ -29,5 +22,10 @@ public class QuadraticEquation extends Equation {
             return new double[] { -b / (2 * a) };
         }
         return new double[] { (-b + Math.sqrt(d)) / (2 * a), (-b - Math.sqrt(d)) / (2 * a) };
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.0fx^2 + %.0fx + %.0f = 0", a, b, c);
     }
 }

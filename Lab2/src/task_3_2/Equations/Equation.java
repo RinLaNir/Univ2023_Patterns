@@ -1,13 +1,13 @@
-package task_3_2.equations;
+package task_3_2.Equations;
 
 // class describe linear equation bx + c = 0
 public class Equation implements IEquation {
     protected double b;
     protected double c;
 
-    public Equation(double b, double c) {
-        this.b = b;
-        this.c = c;
+    public Equation(String b, String c) {
+        this.b = Double.parseDouble(b);
+        this.c = Double.parseDouble(c);
     }
 
     @Override
@@ -19,5 +19,10 @@ public class Equation implements IEquation {
             throw new ArithmeticException("equation has infinite number of solutions");
         }
         return new double[] { -c / b };
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.0fx + %.0f = 0", b, c);
     }
 }

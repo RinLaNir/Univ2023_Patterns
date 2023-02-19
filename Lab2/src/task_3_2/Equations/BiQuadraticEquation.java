@@ -1,9 +1,9 @@
-package task_3_2.equations;
+package task_3_2.Equations;
 
 // class describe bi-quadratic equation ax^4 + bx^2 + c = 0
 public class BiQuadraticEquation extends QuadraticEquation {
 
-    public BiQuadraticEquation(double a, double b, double c) {
+    public BiQuadraticEquation(String a, String b, String c) {
         super(a, b, c);
     }
 
@@ -31,5 +31,10 @@ public class BiQuadraticEquation extends QuadraticEquation {
             throw new ArithmeticException("equation has no solution");
         }
         throw new RuntimeException("unexpected behaviour");
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.0fx^4 + %.0fx^2 + %.0f = 0", a, b, c);
     }
 }
