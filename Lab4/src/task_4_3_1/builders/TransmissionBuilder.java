@@ -3,7 +3,7 @@ package task_4_3_1.builders;
 import task_4_3_1.components.Transmission;
 import task_4_3_1.components.TransmissionType;
 
-public class TransmissionBuilder implements ComponentsBuilder {
+public class TransmissionBuilder {
     private int numberOfGears;
     private TransmissionType transmissionType;
 

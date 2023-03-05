@@ -3,7 +3,7 @@ package task_4_3_1.builders;
 import task_4_3_1.components.MaterialType;
 import task_4_3_1.components.WheelDisk;
 
-public class WheelDiskBuilder implements ComponentsBuilder {
+public class WheelDiskBuilder {
     private double diameter;
     private double width;
     private MaterialType materialType;

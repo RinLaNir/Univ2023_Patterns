@@ -3,7 +3,7 @@ package task_4_3_1.builders;
 import task_4_3_1.components.Engine;
 import task_4_3_1.components.FuelType;
 
-public class EngineBuilder implements ComponentsBuilder {
+public class EngineBuilder {
     private double power;
     private double volume;
     private double torque;
