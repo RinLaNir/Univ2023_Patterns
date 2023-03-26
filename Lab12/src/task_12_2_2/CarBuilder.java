@@ -33,8 +33,8 @@ public class CarBuilder {
     public CarBuilder reset() {
         type = Car.Type.Sedan;
         carColor = Car.CarColor.White;
-        engine = new Engine(105, Engine.Fuel.Petrol);
-        wheel = new Wheel(17);
+        engine = engineFlyweightFactory.getEngine(105, Engine.Fuel.Petrol);
+        wheel = wheelFlyweightFactory.getWheel(17);
         return this;
     }
 
