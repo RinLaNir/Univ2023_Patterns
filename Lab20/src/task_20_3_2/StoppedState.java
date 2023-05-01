@@ -1,27 +1,31 @@
 package task_20_3_2;
 
-public class StoppedState implements State {
-    @Override
-    public void play(MediaPlayer mediaPlayer) {
-        mediaPlayer.setState(new PlayingState());
-        System.out.println("Playing track: " + mediaPlayer.getCurrentTrack());
+public class StoppedState extends State {
+    public StoppedState(MediaPlayer mediaPlayer) {
+        super(mediaPlayer);
     }
 
     @Override
-    public void pause(MediaPlayer mediaPlayer) {}
-
-    @Override
-    public void next(MediaPlayer mediaPlayer) {
-        mediaPlayer.setTrackNum(mediaPlayer.getCurrentTrackNum() + 1);
-        System.out.println("Switched to next track: " + mediaPlayer.getCurrentTrack());
+    public void play() {
+        context.setState(new PlayingState(context));
+        System.out.println("Playing track: " + context.getCurrentTrack());
     }
 
     @Override
-    public void prev(MediaPlayer mediaPlayer) {
-        mediaPlayer.setTrackNum(mediaPlayer.getCurrentTrackNum() - 1);
-        System.out.println("Switched to previous track: " + mediaPlayer.getCurrentTrack());
+    public void pause() {}
+
+    @Override
+    public void next() {
+        context.setTrackNum(context.getCurrentTrackNum() + 1);
+        System.out.println("Switched to next track: " + context.getCurrentTrack());
     }
 
     @Override
-    public void stop(MediaPlayer mediaPlayer) {}
+    public void prev() {
+        context.setTrackNum(context.getCurrentTrackNum() - 1);
+        System.out.println("Switched to previous track: " + context.getCurrentTrack());
+    }
+
+    @Override
+    public void stop() {}
 }

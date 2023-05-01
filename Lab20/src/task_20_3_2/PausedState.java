@@ -1,32 +1,36 @@
 package task_20_3_2;
 
-public class PausedState implements State {
-    @Override
-    public void play(MediaPlayer mediaPlayer) {
-        mediaPlayer.setState(new PlayingState());
-        System.out.println("Resumed track: " + mediaPlayer.getCurrentTrack());
+public class PausedState extends State {
+    public PausedState(MediaPlayer mediaPlayer) {
+        super(mediaPlayer);
     }
 
     @Override
-    public void pause(MediaPlayer mediaPlayer) {}
-
-    @Override
-    public void next(MediaPlayer mediaPlayer) {
-        mediaPlayer.setTrackNum(mediaPlayer.getCurrentTrackNum() + 1);
-        System.out.println("Playing next track: " + mediaPlayer.getCurrentTrack());
-        mediaPlayer.setState(new PlayingState());
+    public void play() {
+        context.setState(new PlayingState(context));
+        System.out.println("Resumed track: " + context.getCurrentTrack());
     }
 
     @Override
-    public void prev(MediaPlayer mediaPlayer) {
-        mediaPlayer.setTrackNum(mediaPlayer.getCurrentTrackNum() - 1);
-        System.out.println("Playing previous track: " + mediaPlayer.getCurrentTrack());
-        mediaPlayer.setState(new PlayingState());
+    public void pause() {}
+
+    @Override
+    public void next() {
+        context.setTrackNum(context.getCurrentTrackNum() + 1);
+        System.out.println("Playing next track: " + context.getCurrentTrack());
+        context.setState(new PlayingState(context));
     }
 
     @Override
-    public void stop(MediaPlayer mediaPlayer) {
-        mediaPlayer.setState(new StoppedState());
-        System.out.println("Stopped track: " + mediaPlayer.getCurrentTrack());
+    public void prev() {
+        context.setTrackNum(context.getCurrentTrackNum() - 1);
+        System.out.println("Playing previous track: " + context.getCurrentTrack());
+        context.setState(new PlayingState(context));
+    }
+
+    @Override
+    public void stop() {
+        context.setState(new StoppedState(context));
+        System.out.println("Stopped track: " + context.getCurrentTrack());
     }
 }

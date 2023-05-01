@@ -6,7 +6,7 @@ import java.util.List;
 public class MediaPlayer {
 
     final private List<String> tracks = new ArrayList<>();
-    private State state = new StoppedState();
+    private State state = new StoppedState(this);
     private int currentTrackNum = 0;
 
 
@@ -43,23 +43,23 @@ public class MediaPlayer {
     }
 
     public void play() {
-        state.play(this);
+        state.play();
     }
 
     public void pause() {
-        state.pause(this);
+        state.pause();
     }
 
     public void next() {
-        state.next(this);
+        state.next();
     }
 
     public void prev() {
-        state.prev(this);
+        state.prev();
     }
 
     public void stop() {
-        state.stop(this);
+        state.stop();
     }
 
 }

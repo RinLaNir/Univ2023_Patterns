@@ -1,9 +1,15 @@
 package task_20_3_2;
 
-public interface State {
-    void play(MediaPlayer mediaPlayer);
-    void pause(MediaPlayer mediaPlayer);
-    void next(MediaPlayer mediaPlayer);
-    void prev(MediaPlayer mediaPlayer);
-    void stop(MediaPlayer mediaPlayer);
+public abstract class State {
+    protected final MediaPlayer context;
+
+    public State(MediaPlayer mediaPlayer) {
+        this.context = mediaPlayer;
+    }
+
+    abstract void play();
+    abstract void pause();
+    abstract void next();
+    abstract void prev();
+    abstract void stop();
 }
