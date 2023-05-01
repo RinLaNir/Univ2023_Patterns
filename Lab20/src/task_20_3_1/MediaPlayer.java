@@ -2,7 +2,7 @@ package task_20_3_1;
 
 public class MediaPlayer {
 
-    private State state = new PausedState();
+    private State state = new PausedState(this);
     private String icon = "play button";
 
     public void setState(State state) {
@@ -22,10 +22,10 @@ public class MediaPlayer {
     }
 
     public void play() {
-        state.play(this);
+        state.play();
     }
 
     public void pause() {
-        state.pause(this);
+        state.pause();
     }
 }

@@ -1,13 +1,17 @@
 package task_20_3_1;
 
-public class PlayingState implements State {
-    @Override
-    public void play(MediaPlayer mediaPlayer) { }
+public class PlayingState extends State {
+    public PlayingState(MediaPlayer mediaPlayer) {
+        super(mediaPlayer);
+    }
 
     @Override
-    public void pause(MediaPlayer mediaPlayer) {
-        mediaPlayer.setState(new PausedState());
-        mediaPlayer.setIcon("play button");
-        System.out.println("Video paused, icon set to " + mediaPlayer.getIcon());
+    public void play() { }
+
+    @Override
+    public void pause() {
+        context.setState(new PausedState(context));
+        context.setIcon("play button");
+        System.out.println("Video paused, icon set to " + context.getIcon());
     }
 }
