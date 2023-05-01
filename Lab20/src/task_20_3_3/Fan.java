@@ -2,7 +2,7 @@ package task_20_3_3;
 
 public class Fan {
 
-  private State state = new LowState();
+  private State state = new LowState(this);
 
   public void setState(State state) {
     this.state = state;
@@ -13,11 +13,11 @@ public class Fan {
   }
 
   public void turnUp() {
-    state.turnUp(this);
+    state.turnUp();
   }
 
   public void turnDown() {
-    state.turnDown(this);
+    state.turnDown();
   }
 
 }

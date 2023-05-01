@@ -1,6 +1,12 @@
 package task_20_3_3;
 
-public interface State {
-      void turnUp(Fan fan);
-      void turnDown(Fan fan);
+public abstract class State {
+      Fan context;
+
+      public State(Fan context) {
+          this.context = context;
+      }
+
+      abstract void turnUp();
+      abstract void turnDown();
 }

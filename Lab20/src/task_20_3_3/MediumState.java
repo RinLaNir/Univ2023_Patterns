@@ -1,15 +1,19 @@
 package task_20_3_3;
 
-public class MediumState implements State {
+public class MediumState extends State {
+    public MediumState(Fan context) {
+        super(context);
+    }
+
     @Override
-    public void turnUp(Fan fan) {
-        fan.setState(new HighState());
+    public void turnUp() {
+        context.setState(new HighState(context));
         System.out.println("Fan is high now");
     }
 
     @Override
-    public void turnDown(Fan fan) {
-        fan.setState(new LowState());
+    public void turnDown() {
+        context.setState(new LowState(context));
         System.out.println("Fan is low now");
     }
 }
